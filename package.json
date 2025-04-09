@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "antd": "^5.24.6"
+  },
+  "devDependencies": {
+    "less": "^4.3.0"
+  }
+}
