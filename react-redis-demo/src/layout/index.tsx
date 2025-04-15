@@ -26,7 +26,7 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
   },
 );
 
-const LayoutBase: React.FC = () => {
+const index: React.FC = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -62,4 +62,4 @@ const LayoutBase: React.FC = () => {
   );
 };
 
-export default LayoutBase;
+export default index;

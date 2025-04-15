@@ -1,8 +1,8 @@
-import { ReactNode } from 'react';
+
 
 export interface RouteConfig {
   path: string;
-  element: ReactNode;
+  element: any;
   children?: RouteConfig[];
   index?: boolean;
   title?: string;
