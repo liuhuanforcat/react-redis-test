@@ -7,7 +7,7 @@ import Redis from '../pages/redis';
 import IndexDB from '../pages/indexDB';
 import BigFile from '../pages/bigFile';
 import React from 'react';
-import { HomeOutlined } from '@ant-design/icons';
+import { HomeOutlined, CloudOutlined, FlagOutlined, WomanOutlined } from '@ant-design/icons';
 
 export type CustomRouteObject = RouteObject & {
   meta?: {
@@ -19,6 +19,15 @@ export type CustomRouteObject = RouteObject & {
   children?: CustomRouteObject[]; // 注意这里 children 也要用自己扩展后的 CustomRouteObject
 };
 const routes: CustomRouteObject[] = [
+  {
+    path: '/login',
+    element: React.createElement(Login),
+    children: [],
+    meta: {
+      title: '登录',
+      hidden: true,
+    },
+  },
   {
     path: '/',
     element: React.createElement(LayoutBase),
@@ -33,6 +42,7 @@ const routes: CustomRouteObject[] = [
         element: React.createElement(Home),
         meta: {
           title: '首页',
+          icon: React.createElement(HomeOutlined),
         },
       },
       {
@@ -40,6 +50,7 @@ const routes: CustomRouteObject[] = [
         element: React.createElement(Redis),
         meta: {
           title: '模拟redis',
+          icon: React.createElement(CloudOutlined),
         },
       },
       {
@@ -47,6 +58,7 @@ const routes: CustomRouteObject[] = [
         element: React.createElement(IndexDB),
         meta: {
           title: 'IndexDB',
+          icon: React.createElement(FlagOutlined),
         },
       },
       {
@@ -54,21 +66,14 @@ const routes: CustomRouteObject[] = [
         element: React.createElement(BigFile),
         meta: {
           title: 'IndexDB',
+          icon: React.createElement(WomanOutlined),
         },
       },
 
       // 可以继续添加其他子路由
     ],
   },
-  {
-    path: '/login',
-    element: React.createElement(Login),
-    children: [],
-    meta: {
-      title: '登录',
-      hidden: true,
-    },
-  }
+
 ];
 
 export default routes;
