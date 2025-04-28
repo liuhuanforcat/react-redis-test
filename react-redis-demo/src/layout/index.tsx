@@ -3,6 +3,7 @@ import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import './index.less';
+import { Outlet } from 'react-router-dom';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -52,7 +53,9 @@ const index: React.FC = () => {
               items={items2}
             />
           </Sider>
-          <Content className='layout-content'>Content</Content>
+          <Content className='layout-content'>
+            <Outlet />
+          </Content>
         </Layout>
       </div>
       <Footer className='layout-footer'>
