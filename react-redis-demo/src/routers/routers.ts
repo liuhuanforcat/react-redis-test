@@ -7,18 +7,18 @@ import React from 'react';
 
 const routes: RouteObject[] = [
   {
-    path: '/redis',
+    path: '/',
     element: React.createElement(LayoutBase),
     children: [
       {
-        path: 'index',
+        path: 'home',
         element: React.createElement(Home),
       },
       // 可以继续添加其他子路由
     ],
   },
   {
-    path: '/',
+    path: '/login',
     element: React.createElement(Login),
     children: [],
   }

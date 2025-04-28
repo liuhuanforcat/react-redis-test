@@ -27,7 +27,8 @@ const LoginPage: React.FC = () => {
 
   const onFinish = (values: any) => {
     console.log('Received values:', values);
-    navigate('/redis');
+    localStorage.setItem('token', 'your_token_here'); // 模拟登录成功，存储 token
+    navigate('/home');
     // 这里添加登录逻辑
   };
 
