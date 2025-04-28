@@ -3,35 +3,29 @@ import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import './index.less';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { generateMenuItems } from '../utils';
+import routes from '../routers/routers';
 
 const { Header, Content, Footer, Sider } = Layout;
 
 
-const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
-  (icon, index) => {
-    const key = String(index + 1);
-
-    return {
-      key: `sub${key}`,
-      icon: React.createElement(icon),
-      label: `subnav ${key}`,
-      children: Array.from({ length: 4 }).map((_, j) => {
-        const subKey = index * 4 + j + 1;
-        return {
-          key: subKey,
-          label: `option${subKey}`,
-        };
-      }),
-    };
-  },
-);
 
 const index: React.FC = () => {
+  const navigate = useNavigate();
+
+  // 处理菜单点击
+  const handleMenuClick = ({ key }: { key: string }) => {
+    navigate(key);
+  };
+
+
+
+
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-
+  const menuItems = generateMenuItems(routes.find(r => r.path === '/')?.children || []);
   return (
     <Layout>
       <Header style={{ display: 'flex', alignItems: 'center' }}>
@@ -50,7 +44,8 @@ const index: React.FC = () => {
               defaultSelectedKeys={['1']}
               defaultOpenKeys={['sub1']}
               style={{ height: '100%' }}
-              items={items2}
+              onClick={handleMenuClick}
+              items={menuItems}
             />
           </Sider>
           <Content className='layout-content'>
